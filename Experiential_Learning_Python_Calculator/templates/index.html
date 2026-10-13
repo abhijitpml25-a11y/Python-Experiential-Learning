@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="A responsive scientific calculator built with Python, Flask, HTML, CSS and JavaScript.">
+  <title>CalcLab — Python Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="CalcLab home">
+        <span class="brand-mark">∑</span>
+        <span><strong>CalcLab</strong><small>PYTHON SCIENTIFIC CALCULATOR</small></span>
+      </a>
+      <span class="status"><i></i> Calculator ready</span>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> EXPERIENTIAL LEARNING PROJECT</div>
+      <h1>Math, <span>made simple.</span></h1>
+      <p>From quick arithmetic to scientific functions, calculate with clarity.</p>
+    </section>
+
+    <section class="workspace" aria-label="Calculator workspace">
+      <div class="calculator panel">
+        <div class="panel-heading">
+          <div><span class="panel-kicker">WORKSPACE</span><h2>Calculator</h2></div>
+          <span class="mode-pill">DEG</span>
+        </div>
+        <div class="display" aria-live="polite">
+          <div class="expression-label">EXPRESSION</div>
+          <input id="expression" type="text" autocomplete="off" spellcheck="false"
+                 aria-label="Mathematical expression" placeholder="Try  (12 + 8) / 4"
+                 maxlength="250">
+          <div class="result-row"><span id="message">Ready for your next calculation</span><output id="result">0</output></div>
+        </div>
+
+        <div class="keypad" id="keypad">
+          <button class="key function" data-insert="sin(">sin</button>
+          <button class="key function" data-insert="cos(">cos</button>
+          <button class="key function" data-insert="tan(">tan</button>
+          <button class="key function" data-insert="sqrt(">√</button>
+          <button class="key utility" data-action="clear">AC</button>
+
+          <button class="key function" data-insert="log(">log</button>
+          <button class="key function" data-insert="ln(">ln</button>
+          <button class="key function" data-insert="factorial(">x!</button>
+          <button class="key function" data-insert="^">xʸ</button>
+          <button class="key utility" data-action="backspace">⌫</button>
+
+          <button class="key function" data-insert="(">(</button>
+          <button class="key function" data-insert=")">)</button>
+          <button class="key function" data-insert="pi">π</button>
+          <button class="key function" data-insert="e">e</button>
+          <button class="key operator" data-insert="/">÷</button>
+
+          <button class="key" data-insert="7">7</button>
+          <button class="key" data-insert="8">8</button>
+          <button class="key" data-insert="9">9</button>
+          <button class="key operator" data-insert="*">×</button>
+          <button class="key operator" data-insert="%">%</button>
+
+          <button class="key" data-insert="4">4</button>
+          <button class="key" data-insert="5">5</button>
+          <button class="key" data-insert="6">6</button>
+          <button class="key operator" data-insert="-">−</button>
+          <button class="key operator" data-insert="//">⌊÷⌋</button>
+
+          <button class="key" data-insert="1">1</button>
+          <button class="key" data-insert="2">2</button>
+          <button class="key" data-insert="3">3</button>
+          <button class="key operator" data-insert="+">+</button>
+          <button class="key function" data-insert="abs(">abs</button>
+
+          <button class="key wide" data-insert="0">0</button>
+          <button class="key" data-insert=".">.</button>
+          <button class="key utility" data-action="sign">±</button>
+          <button class="key equals" data-action="calculate">=</button>
+        </div>
+        <div class="calculator-foot"><span>↵ Enter to calculate</span><span>Trigonometry uses degrees</span></div>
+      </div>
+
+      <aside class="side-column">
+        <section class="panel tips">
+          <div class="panel-heading"><div><span class="panel-kicker">QUICK GUIDE</span><h2>How to use</h2></div><span class="icon-circle">✦</span></div>
+          <div class="tip-list">
+            <div class="tip"><span class="tip-number">01</span><div><strong>Enter an expression</strong><p>Use the keypad or type directly into the input.</p></div></div>
+            <div class="tip"><span class="tip-number">02</span><div><strong>Use scientific tools</strong><p>Try <code>sqrt(81)</code>, <code>sin(30)</code> or <code>log(100)</code>.</p></div></div>
+            <div class="tip"><span class="tip-number">03</span><div><strong>Calculate instantly</strong><p>Press equals or hit Enter. Errors are explained clearly.</p></div></div>
+          </div>
+          <div class="supported"><span class="supported-dot"></span><span><strong>Supported</strong><small>Arithmetic · Powers · Trigonometry · Logs</small></span></div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-heading"><div><span class="panel-kicker">YOUR SESSION</span><h2>Recent calculations</h2></div><button id="clear-history" class="text-button" type="button">Clear</button></div>
+          <div id="history" class="history-list"><div class="empty-history"><span>↗</span><p>Your calculations will appear here.</p></div></div>
+        </section>
+      </aside>
+    </section>
+
+    <footer><span>CalcLab <span class="footer-dot">•</span> Python + Flask</span><span>Built for learning. Designed for clarity.</span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
